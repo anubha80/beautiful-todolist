@@ -6,6 +6,7 @@ var path = require("path");
 app.use(bodyParser.urlencoded({extended:true}));
 
 var newItems = ["Breathe", "Dream", "Work Smart"];
+var workItems=[];
 app.use(express.static(path.join(__dirname, 'public')));
 
 // set the view engine to ejs
@@ -17,13 +18,22 @@ app.get("/", function(req, res){
     var options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
     var today  = new Date();
     var finaldate= today.toLocaleDateString("en-US", options);
-    res.render("list", {dateToday:finaldate , listItems:newItems});
+    res.render("list", {listTitle:finaldate , listItems:newItems});
 });
-
 app.post("/", function(req, res){
-    newItem = req.body.task;
-    newItems.push(newItem);
-    res.redirect("/");
+    let newItem = req.body.task;
+    if(req.body.list === "Work"){
+        workItems.push(newItem);
+        res.redirect("/work");
+    }
+    else{
+        newItems.push(newItem);
+        res.redirect("/");
+    }
+})
+// work page
+app.get("/work",function(req, res){
+    res.render("list",{listTitle:"Work List", listItems:workItems});
 })
 
 app.listen(process.env.PORT|| 3000,function(){
