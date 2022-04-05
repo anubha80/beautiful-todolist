@@ -4,10 +4,12 @@ html {
   min-height: 1000px;
   font-family: 'helvetica neue';
 }
-
+body{
+  font-family: 'Archivo', sans-serif;
+}
 h1 {
   color: #fff;
-  padding: 10px;
+  padding: 20px;
 }
 
 .box {
@@ -89,11 +91,11 @@ input[type="text"]:focus {
   opacity: 1;
 }
 
-footer {
+/* footer {
   color: white;
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
-}
+} */
 .copyright{
   text-align: center;
 }

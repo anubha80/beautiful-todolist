@@ -14,7 +14,7 @@ app.set('view engine', 'ejs');
 app.get("/", function(req, res){
     // var today = new Date();
     // console.log(today);
-    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    var options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
     var today  = new Date();
     var finaldate= today.toLocaleDateString("en-US", options);
     res.render("list", {dateToday:finaldate , listItems:newItems});
