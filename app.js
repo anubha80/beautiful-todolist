@@ -21,6 +21,7 @@ app.get("/", function(req, res){
     res.render("list", {listTitle:finaldate , listItems:newItems});
 });
 app.post("/", function(req, res){
+    // console.log(req.body);
     let newItem = req.body.task;
     if(req.body.list === "Work"){
         workItems.push(newItem);
@@ -34,6 +35,11 @@ app.post("/", function(req, res){
 // work page
 app.get("/work",function(req, res){
     res.render("list",{listTitle:"Work List", listItems:workItems});
+})
+
+//about page
+app.get("/about",function(req, res){
+    res.render("about");
 })
 
 app.listen(process.env.PORT|| 3000,function(){

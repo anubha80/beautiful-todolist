@@ -51,6 +51,7 @@ p {
   font-size: 20px;
   font-weight: 200;
   color: #00204a;
+  text-align: justify;
 }
 
 form {
@@ -91,11 +92,11 @@ input[type="text"]:focus {
   opacity: 1;
 }
 
-/* footer {
+footer {
   color: white;
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
-} */
+}
 .copyright{
   text-align: center;
 }
