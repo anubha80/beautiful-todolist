@@ -5,7 +5,7 @@ var path = require("path");
 
 app.use(bodyParser.urlencoded({extended:true}));
 
-var newItems = ["Be Kind", "Smile", "Relax"];
+var newItems = ["Breathe", "Dream", "Work Smart"];
 app.use(express.static(path.join(__dirname, 'public')));
 
 // set the view engine to ejs
