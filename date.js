@@ -1,17 +1,14 @@
-module.exports.getDate= getDate;
-
-function getDate(){
-    var options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
-    var today  = new Date();
-    var finaldate= today.toLocaleDateString("en-US", options);
-    return finaldate;
+exports.getDate= function(){
+    let options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
+    let today  = new Date();
+    return today.toLocaleDateString("en-US", options);
 }
 
-module.exports.getDay= getDay;
 
-function getDay(){
-    var options = { weekday: 'long' };
-    var today  = new Date();
-    var finaldate= today.toLocaleDateString("en-US", options);
-    return finaldate;
+exports.getDay= function(){
+    let options = { weekday: 'long' };
+    let today  = new Date();
+    return today.toLocaleDateString("en-US", options);
 }
+
+// instead of module.exports we can say exports

@@ -7,12 +7,12 @@ const date = require (__dirname+"/date.js");
 
 const app = express();
 
-var path = require("path");
+const path = require("path");
 
 app.use(bodyParser.urlencoded({extended:true}));
 
-var newItems = ["Breathe", "Dream", "Work Smart"];
-var workItems=[];
+const newItems = ["Breathe", "Dream", "Work Smart"];
+const workItems=[];
 app.use(express.static(path.join(__dirname, 'public')));
 
 // set the view engine to ejs
