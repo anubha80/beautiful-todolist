@@ -1,6 +1,12 @@
 const express = require ("express");
-var bodyParser = require ("body-parser");
+const bodyParser = require ("body-parser");
+
+// we have this module ate and we are requiring it 
+// this binds all the export to this const called date
+const date = require (__dirname+"/date.js");
+
 const app = express();
+
 var path = require("path");
 
 app.use(bodyParser.urlencoded({extended:true}));
@@ -12,14 +18,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
+// testing module creation and exporting
+// craeted date.js
+// console.log(date);
+
 app.get("/", function(req, res){
     // var today = new Date();
     // console.log(today);
-    var options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
-    var today  = new Date();
-    var finaldate= today.toLocaleDateString("en-US", options);
+    
+    // calling date function
+    let finaldate= date.getDate();
+    console.log(finaldate);
     res.render("list", {listTitle:finaldate , listItems:newItems});
 });
+
 app.post("/", function(req, res){
     // console.log(req.body);
     let newItem = req.body.task;
@@ -32,6 +44,7 @@ app.post("/", function(req, res){
         res.redirect("/");
     }
 })
+
 // work page
 app.get("/work",function(req, res){
     res.render("list",{listTitle:"Work List", listItems:workItems});
